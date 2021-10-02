@@ -340,7 +340,7 @@ SyntaxV2.Login.BackgroundTransparency = 0.200
 SyntaxV2.Login.Position = UDim2.new(0.340000004, 0, 0.729516387, 0)
 SyntaxV2.Login.Size = UDim2.new(0, 159, 0, 30)
 SyntaxV2.Login.Font = Enum.Font.SourceSansLight
-SyntaxV2.Login.Text = "Syntaxbesthub"
+SyntaxV2.Login.Text = "Enter"
 SyntaxV2.Login.TextColor3 = Color3.fromRGB(0, 0, 0)
 SyntaxV2.Login.TextScaled = true
 SyntaxV2.Login.TextSize = 14.000
@@ -3437,7 +3437,7 @@ local function VAGHUIK_fake_script() -- SyntaxV2.Login.LocalScript
 	local Key = script.Parent.Parent.Key
 	
 	script.Parent.MouseButton1Click:Connect(function()
-		if Key.Text == "k" then
+		if Key.Text == "Syntaxbesthub" then
 			script.Parent.Parent:TweenPosition(UDim2.new(0.383,0,-0.9,0), "Out", "Quad", 1, true)
 			wait(2)
 	local s = Instance.new("Sound")
