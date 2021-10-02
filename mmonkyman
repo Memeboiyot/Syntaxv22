@@ -1,0 +1,348 @@
+local realfenv
+realfenv = hookfunction(getgenv().getfenv,function(a)
+	local num = tonumber(a)
+	if num then
+		if num > 10 or num < 1 then
+			error("rip")
+		else
+			return realfenv()
+		end
+	else
+		return realfenv()
+	end
+end)
+
+local maxSim = 1000
+getgenv().setsimulationradius = newcclosure(function(i,v)
+	local plr = game.Players.LocalPlayer
+	sethiddenproperty(plr,"MaxSimulationRadius",maxSim)
+	sethiddenproperty(plr,"SimulationRadius",maxSim)
+end)
+
+local sethidden
+sethidden = hookfunction(getgenv().sethiddenproperty,function(i,p,v)
+	local plr = game.Players.LocalPlayer
+	if i == plr then
+		if (p == "MaxSimulationRadius" or p == "SimulationRadius") then
+			if v == maxSim then
+				sethidden(i,p,v)
+			end
+		else
+			sethidden(i,p,v)
+		end
+	else
+		sethidden(i,p,v)
+	end
+end)
+
+local function nocloloop()
+	if  game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+		for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+			if child:IsA("BasePart") and child.CanCollide == true then
+				child.CanCollide = false
+			end
+		end
+	end
+end
+Noclipping = game:GetService('RunService').Stepped:connect(nocloloop)
+
+repeat wait() until game:IsLoaded() and game.CoreGui
+spawn(function()
+	while true do
+		settings().Physics.AllowSleep = false
+		game.Players.LocalPlayer.MaximumSimulationRadius = math.pow(math.huge,math.huge)*math.huge
+		setsimulationradius(math.pow(math.huge,math.huge)*math.huge)
+		game:GetService("RunService").Stepped:wait()
+	end
+end)
+for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+	if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
+		game:GetService("RunService").Heartbeat:connect(function()
+			v.Velocity = Vector3.new(45,0,0)
+		end)
+	end
+end
+wait(0.1)
+
+plr = game.Players.LocalPlayer
+char = plr.Character
+
+mouse = plr:GetMouse()
+head = char.Head
+camera = workspace.CurrentCamera
+
+rightleg = char["Left Leg"]
+torso = char.Torso
+torso["Left Hip"]:Destroy()
+
+r = Instance.new("Attachment",rightleg)
+
+r.Position = Vector3.new(0.4,1.6,0.6)
+r.Rotation = Vector3.new(-25,-10,0)
+
+t = Instance.new("Attachment",torso)
+
+-- Align and orientation :p
+
+rap = Instance.new("AlignPosition",rightleg)
+rap.Attachment0 = r
+rap.Attachment1 = t
+rap.RigidityEnabled = true
+rap.ApplyAtCenterOfMass = false
+rap.MaxForce = 9e9
+rap.MaxVelocity = 9e99
+rap.ReactionForceEnabled = false
+rap.Responsiveness = 9e99
+
+rao = Instance.new("AlignOrientation",rightleg)
+rao.Attachment0 = r
+rao.Attachment1 = t
+rao.RigidityEnabled = true
+rao.MaxTorque = 9e99
+rao.MaxAngularVelocity = 9e99
+rao.PrimaryAxisOnly = false
+rao.ReactionTorqueEnabled = false
+rao.Responsiveness = 200
+rao.RigidityEnabled = false
+
+
+char = game.Players.LocalPlayer.Character
+local mouse = game.Players.LocalPlayer:GetMouse()
+hat = char["SeeMonkey"]
+hat = hat.Handle
+hat.Mesh:Destroy()
+char = game.Players.LocalPlayer.Character
+local mouse = game.Players.LocalPlayer:GetMouse()
+hat = char["Pal Hair"]
+hat = hat.Handle
+hat.Mesh:Destroy()
+
+char = game.Players.LocalPlayer.Character
+local mouse = game.Players.LocalPlayer:GetMouse()
+hat = char["Kate Hair"]
+hat = hat.Handle
+hat.Mesh:Destroy()
+
+char = game.Players.LocalPlayer.Character
+local mouse = game.Players.LocalPlayer:GetMouse()
+hat = char["Pink Hair"]
+hat = hat.Handle
+hat.Mesh:Destroy()
+
+char = game.Players.LocalPlayer.Character
+local mouse = game.Players.LocalPlayer:GetMouse()
+hat = char["Hat1"]
+hat = hat.Handle
+hat.Mesh:Destroy()
+
+char = game.Players.LocalPlayer.Character
+local mouse = game.Players.LocalPlayer:GetMouse()
+
+
+player2 = game:GetService("Players").LocalPlayer
+character2 = player2.Character
+item2 = character2["Monke"].Handle
+item2:BreakJoints()
+
+
+alignOr = Instance.new("AlignOrientation",character2["Head"])
+alignPosition = Instance.new("AlignPosition",character2["Head"])
+a0 = Instance.new("Attachment",item2)
+a1 = Instance.new("Attachment",character2["HumanoidRootPart"])
+alignPosition.Attachment0 = a0
+alignPosition.Attachment1 = a1
+alignPosition.Responsiveness = 200
+alignPosition.RigidityEnabled = true
+alignOr.Attachment0 = a0
+alignOr.Attachment1 = a1
+alignOr.Responsiveness = 200
+alignOr.RigidityEnabled = true
+
+a0.Position = Vector3.new(2.5,-0.5,2)
+a0.Orientation = Vector3.new(-10,0,-80)
+
+player2 = game:GetService("Players").LocalPlayer
+character2 = player2.Character
+item2 = character2["SeeMonkey"].Handle
+item2:BreakJoints()
+
+
+alignOr = Instance.new("AlignOrientation",character2["Head"])
+alignPosition = Instance.new("AlignPosition",character2["Head"])
+a0 = Instance.new("Attachment",item2)
+a1 = Instance.new("Attachment",character2["HumanoidRootPart"])
+alignPosition.Attachment0 = a0
+alignPosition.Attachment1 = a1
+alignPosition.Responsiveness = 200
+alignPosition.RigidityEnabled = true
+alignOr.Attachment0 = a0
+alignOr.Attachment1 = a1
+alignOr.Responsiveness = 200
+alignOr.RigidityEnabled = true
+
+a0.Position = Vector3.new(-0.9,2.6,2)
+a0.Orientation = Vector3.new(0,-15,0)
+
+player2 = game:GetService("Players").LocalPlayer
+character2 = player2.Character
+item2 = character2["Pal Hair"].Handle
+item2:BreakJoints()
+
+
+alignOr = Instance.new("AlignOrientation",character2["Head"])
+alignPosition = Instance.new("AlignPosition",character2["Head"])
+a0 = Instance.new("Attachment",item2)
+a1 = Instance.new("Attachment",character2["HumanoidRootPart"])
+alignPosition.Attachment0 = a0
+alignPosition.Attachment1 = a1
+alignPosition.Responsiveness = 200
+alignPosition.RigidityEnabled = true
+alignOr.Attachment0 = a0
+alignOr.Attachment1 = a1
+alignOr.Responsiveness = 200
+alignOr.RigidityEnabled = true
+
+a0.Position = Vector3.new(0.6,2.6,1)
+a0.Orientation = Vector3.new(0,90,0)
+
+player2 = game:GetService("Players").LocalPlayer
+character2 = player2.Character
+item2 = character2["Pink Hair"].Handle
+item2:BreakJoints()
+
+
+alignOr = Instance.new("AlignOrientation",character2["Head"])
+alignPosition = Instance.new("AlignPosition",character2["Head"])
+a0 = Instance.new("Attachment",item2)
+a1 = Instance.new("Attachment",character2["HumanoidRootPart"])
+alignPosition.Attachment0 = a0
+alignPosition.Attachment1 = a1
+alignPosition.Responsiveness = 200
+alignPosition.RigidityEnabled = true
+alignOr.Attachment0 = a0
+alignOr.Attachment1 = a1
+alignOr.Responsiveness = 200
+alignOr.RigidityEnabled = true
+
+a0.Position = Vector3.new(-1.7,2.6,-2.8)
+a0.Orientation = Vector3.new(0,-99,0)
+
+player2 = game:GetService("Players").LocalPlayer
+character2 = player2.Character
+item2 = character2["Hat1"].Handle
+item2:BreakJoints()
+
+
+alignOr = Instance.new("AlignOrientation",character2["Head"])
+alignPosition = Instance.new("AlignPosition",character2["Head"])
+a0 = Instance.new("Attachment",item2)
+a1 = Instance.new("Attachment",character2["HumanoidRootPart"])
+alignPosition.Attachment0 = a0
+alignPosition.Attachment1 = a1
+alignPosition.Responsiveness = 200
+alignPosition.RigidityEnabled = true
+alignOr.Attachment0 = a0
+alignOr.Attachment1 = a1
+alignOr.Responsiveness = 200
+alignOr.RigidityEnabled = true
+
+a0.Position = Vector3.new(-2.3,2.6,-3.2)
+a0.Orientation = Vector3.new(0,-110,5)
+
+player2 = game:GetService("Players").LocalPlayer
+character2 = player2.Character
+item2 = character2["Kate Hair"].Handle
+item2:BreakJoints()
+
+
+alignOr = Instance.new("AlignOrientation",character2["Head"])
+alignPosition = Instance.new("AlignPosition",character2["Head"])
+a0 = Instance.new("Attachment",item2)
+a1 = Instance.new("Attachment",character2["HumanoidRootPart"])
+alignPosition.Attachment0 = a0
+alignPosition.Attachment1 = a1
+alignPosition.Responsiveness = 200
+alignPosition.RigidityEnabled = true
+alignOr.Attachment0 = a0
+alignOr.Attachment1 = a1
+alignOr.Responsiveness = 200
+alignOr.RigidityEnabled = true
+
+a0.Position = Vector3.new(-2.3,2.9,-3)
+a0.Orientation = Vector3.new(0,-135,8)
+
+
+
+
+
+
+
+plr = game.Players.LocalPlayer
+char = plr.Character
+
+mouse = plr:GetMouse()
+head = char.Head
+camera = workspace.CurrentCamera
+
+rarm = char["Right Arm"]
+torso = char.Torso
+
+torso["Right Shoulder"]:Destroy()
+
+rarm.RightShoulderAttachment:Destroy()
+
+
+r = Instance.new("Attachment",rarm)
+r.Rotation = Vector3.new(-90,-40,-30)
+r.Position = Vector3.new(-1.6,0,-0.5)
+
+t = Instance.new("Attachment",torso)
+--rarm
+rap = Instance.new("AlignPosition",rarm)
+rap.Attachment0 = r
+rap.Attachment1 = t
+rap.RigidityEnabled = true
+
+rao = Instance.new("AlignOrientation",rarm)
+rao.Attachment0 = r
+rao.Attachment1 = t
+rao.RigidityEnabled = true
+
+lg = Instance.new("Attachment",larm)
+lg.Rotation = Vector3.new(0,0,0)
+lg.Position = Vector3.new(0,0,0)
+
+
+
+mouse.KeyDown:connect(function(k)
+	if k == "q" then
+
+
+		local s = Instance.new("Sound")
+		s.Name = "Sound"
+		s.SoundId = "https://web.roblox.com/asset/?id=1033173157"
+		s.Volume = 0.5
+		s.Looped = false
+		s.archivable = false
+		s.Parent = game.Workspace
+		s:play() 
+
+		r.Rotation = Vector3.new(-90,-70,-30)
+		r.Position = Vector3.new(-0.9,1.7,-1)
+		wait(0.13)
+
+		r.Rotation = Vector3.new(-90,-40,-30)
+		r.Position = Vector3.new(-1.6,0,-0.5)
+		wait(0.5)
+
+		local s = Instance.new("Sound")
+		s.Name = "Sound"
+		s.SoundId = "https://web.roblox.com/asset/?id=7112263679"
+		s.Volume = 0.5
+		s.Looped = false
+		s.archivable = false
+		s.Parent = game.Workspace
+		s:play() 
+
+	end
+end)
