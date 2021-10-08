@@ -983,21 +983,23 @@ SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
 	end
 
 	if SyntaxV2.Executor_2.Text == "noclip" then
---here info
-
+	    SyntaxV2.TextInfo.Text = "[ NO-CLIP ] command loaded."
+wait(1)
 			SyntaxV2.Executor_2.Text = ""
-	local function nocl()
+			local function nocl()
 			for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
 				if part:IsA("BasePart") and part.CanCollide == true then
 					part.CanCollide = false
 				end
 			end
-		end
+			end
+	SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
 		connectcl = game:GetService("RunService").Stepped:Connect(nocl)
-SyntaxV2.TextInfo.Text = "[ NO-CLIP ] command loaded."
-wait(1)
-SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
 end
+
+
+
+
 	if SyntaxV2.Executor_2.Text == "bodybomb" then
 SyntaxV2.TextInfo.Text = "[ HumanoidBomb ] command loaded."
 wait(1)
@@ -1136,7 +1138,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 					end
 				end
 				SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
-			SyntaxV2.Executor_2.Text = ""
+			
 	end
 			end
 			end
@@ -1173,242 +1175,13 @@ SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
 		connectcl:Disconnect()
 end
 
-	if SyntaxV2.Executor_2.Text == "bodybomb" then
---here info
-SyntaxV2.TextInfo.Text = "[ HUMANOID BOMB ] command loaded."
-wait(1)
-SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
-			SyntaxV2.Executor_2.Text = ""
-	for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
-			if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
-				game:GetService("RunService").Heartbeat:connect(function()
-					v.Velocity = Vector3.new(99999,0,0)
-				end)
-			end
-		end
-		wait()
-
-		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-		local part1 = Instance.new("Part")
-		part1.Parent = game.Workspace
-		part1.Name = "Part1"
-		wait()
-		local humanoid = Instance.new("Humanoid")
-		humanoid.Parent = part1
-		game.Workspace.CurrentCamera.CameraSubject =game.Workspace.Part1
-		hrp = game.Players.LocalPlayer.Character.HumanoidRootPart    
-		bv = Instance.new("BodyVelocity", hrp)
-		bv.Velocity = Vector3.new(50,5,40)
-		wait()
-		bv.Velocity = Vector3.new(50,5,40)
-		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-		wait(2)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-
-		power = 100
-		wait()
-		local bambam = Instance.new("BodyThrust")
-		bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-		bambam.Force = Vector3.new(power,0,power)
-		bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-		LocalPlayer = game.Players.LocalPlayer
-		wait()
-		spawn(function()
-			game.Players.LocalPlayer.Character:BreakJoints()
-			game.Players.LocalPlayer.Character.Head.CanCollide = false
-			game.Players.LocalPlayer.Character.Torso.CanCollide = false
-			game.Players.LocalPlayer.Character["Left Leg"].CanCollide = false
-			game.Players.LocalPlayer.Character["Right Leg"].CanCollide = false
-		end)
-		local char = game.Players.LocalPlayer.Character
-		local b = char["Right Arm"]
-		local b1 = char["Left Arm"]
-		local b2 = char["Right Leg"]
-		local b3 = char["Left Leg"]
-		hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local bav = Instance.new("BodyAngularVelocity", hrp)
-		bav.AngularVelocity = Vector3.new(0, 0, -1000)
-		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
-
-		bv = Instance.new("BodyVelocity", hrp)
-		bv.Velocity = Vector3.new(0,0,0)
-		wait()
-		bv.Velocity = Vector3.new(0,0,0)
-		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-
-		--bruh
-		local bav = Instance.new("BodyAngularVelocity", b)
-		bav.AngularVelocity = Vector3.new(0, 0, -10000)
-		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
-
-		bv = Instance.new("BodyVelocity", b)
-		bv.Velocity = Vector3.new(0,0,0)
-		wait()
-		bv.Velocity = Vector3.new(0,0,0)
-		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-		--bruh
-
-		--bruh
-		local bav = Instance.new("BodyAngularVelocity", b1)
-		bav.AngularVelocity = Vector3.new(0, 0, -10000)
-		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
-
-		bv = Instance.new("BodyVelocity", b1)
-		bv.Velocity = Vector3.new(0,0,0)
-		wait()
-		bv.Velocity = Vector3.new(0,0,0)
-		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-		--bruh
-
-		--bruh
-		local bav = Instance.new("BodyAngularVelocity", b2)
-		bav.AngularVelocity = Vector3.new(99, 99, -10000)
-		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
-
-		bv = Instance.new("BodyVelocity", b2)
-		bv.Velocity = Vector3.new(99,99,99)
-		wait()
-		bv.Velocity = Vector3.new(99,99,99)
-		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-		--bruh
-		--bruh
-		local bav = Instance.new("BodyAngularVelocity", b3)
-		bav.AngularVelocity = Vector3.new(9999, 9999, -10000)
-		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
-
-		bv = Instance.new("BodyVelocity", b3)
-		bv.Velocity = Vector3.new(99,99,99)
-		wait()
-		bv.Velocity = Vector3.new(99,99,99)
-		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-		--bruh
-
-		local Players = Game:GetService("Players")
-		local GetPlayers = Players:GetPlayers()
-		local Player = Players.LocalPlayer
-		local Character = Player.Character
-		local RunService = Game:GetService("RunService")
-		local Heartbeat = RunService.Heartbeat
-		local Sitting = {}
-
-		while true do
-			wait(0.000000000000000000000000000000000000000000000000000000000000000000000000000000001)
-			for _,Players in next, GetPlayers do
-				if Players.Character then
-					repeat Heartbeat:wait() until Character:FindFirstChild("Right Arm")
-					repeat Heartbeat:wait() until Players.Character:FindFirstChild("Humanoid")
-					repeat Heartbeat:wait() until Players.Character:FindFirstChild("HumanoidRootPart")
-					if Players.Character:FindFirstChild("Humanoid").Sit ~= true then
-						table.insert(Sitting,x)
-						Character["Right Arm"]:BreakJoints()
-						Character["Left Arm"]:BreakJoints()
-						Character["Right Leg"]:BreakJoints()
-						Character["Left Leg"]:BreakJoints()
-						Character:FindFirstChild("Right Arm").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
-						Character:FindFirstChild("Left Arm").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
-						Character:FindFirstChild("Right Leg").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
-						Character:FindFirstChild("Left Leg").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
-						Character:FindFirstChild("HumanoidRootPart").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
-					end
-				end
-			end
-		end
-	end
-
-	if string.sub(SyntaxV2.Executor_2.Text, 1, 7) == ("finger ") then
-
-		for i,v in pairs(GetPlayer(string.sub(SyntaxV2.Executor_2.Text, 8)))do
-
-			for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
-				if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
-					game:GetService("RunService").Heartbeat:connect(function()
-						v.Velocity = Vector3.new(45,0,0)
-					end)
-				end
-			end
-			wait(0.1)
-
-			local player = game.Players.LocalPlayer
-			local target = game.Players[v.Name].Character
-
-			local head = player.Character.WDW_FoamFinger
-
-			local root = target.HumanoidRootPart
-
-
-			function weld(hat, position, orientation)
-				local attachment = Instance.new("Attachment")
-				attachment.Parent = root
-				attachment.Name = hat:GetFullName()
-				attachment.Position = position
-				attachment.Orientation = orientation
-
-				local attach0 = hat.Handle:FindFirstChildOfClass("Attachment")
-				local attach1 = attachment
-
-				hat.Handle.AccessoryWeld:Destroy()
-				local alignP = Instance.new("AlignPosition")
-				alignP.Parent = hat.Handle
-				alignP.Attachment0 = attach0
-				alignP.Attachment1 = attach1
-				alignP.Responsiveness = 200
-				alignP.RigidityEnabled = true
-
-				local alignO = Instance.new("AlignOrientation")
-				alignO.Parent = hat.Handle
-				alignO.Attachment0 = attach0
-				alignO.Attachment1 = attach1
-				alignO.MaxTorque = 9e99
-				alignO.MaxAngularVelocity = 9e99
-				alignO.PrimaryAxisOnly = false
-				alignO.ReactionTorqueEnabled = false
-				alignO.Responsiveness = 200
-				alignO.RigidityEnabled = false
-			end
-
-			function reWeld(hat, position, orientation) --Object, Vector3, Optional Vector3
-				local attachmentP = hat.Handle:FindFirstChildOfClass("AlignPosition").Attachment1
-				local attachmentO = hat.Handle:FindFirstChildOfClass("AlignOrientation").Attachment1
-				attachmentP.Position = position
-				orientation = orientation or attachmentO.Orientation --this line is what makes orientation an optional argument
-				attachmentO.Orientation = orientation --under the circumstances of this unmodified script attachmentP and attachmentO are the same. the redundancy for people who wanna edit this who don't know what they're doing.
-			end
-
-			weld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
-
-			--reweld example
-			local UIS = game:GetService("UserInputService")
-			local readySlam = true
-			UIS.InputBegan:Connect(function(key, gpi)
-				if readySlam and key.KeyCode == Enum.KeyCode.Q and not gpi then --gpi or GameProcessedEvent tells you whether the button (Q) was pressed in chat or a TextBox GUI etc. for more information on the KeyCodes (say if you want to detect pressing enter) go to https://developer.roblox.com/en-us/api-reference/property/InputObject/KeyCode
-					--preparing slam
-					readySlam = false
-					reWeld(head, Vector3.new(0.2, -1.6, 1.5), Vector3.new(-0, -90, 110))
-					wait(0.5)
-					reWeld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
-					wait(0.5)
-					reWeld(head, Vector3.new(0.2, -1.6, 1.5), Vector3.new(-0, -90, 110))
-					wait(0.5)
-					reWeld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
-					wait(0.5)
-					reWeld(head, Vector3.new(0.2, -1.6, 1.5), Vector3.new(-0, -90, 110))
-					wait(0.5)
-					reWeld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
-					readySlam = true
-				end
-			end)
-
-		end
-	end
-
-
 	if string.sub(SyntaxV2.Executor_2.Text, 1, 3) == ("pp ") then
 
 		for i,v in pairs(GetPlayer(string.sub(SyntaxV2.Executor_2.Text, 4)))do
 
 
 local player = game.Players.LocalPlayer
-local target = game.Players[v.Name].Character --you can change this to give the titan to someone else and get them banned probably lol
+local target = game.Players[v.Name].Character 
 
 			for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
 				if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
@@ -1492,7 +1265,7 @@ local attachmentP = hat.Handle:FindFirstChildOfClass("AlignPosition").Attachment
 local attachmentO = hat.Handle:FindFirstChildOfClass("AlignOrientation").Attachment1
 attachmentP.Position = position
 orientation = orientation or attachmentO.Orientation --this line is what makes orientation an optional argument
-attachmentO.Orientation = orientation --under the circumstances of this unmodified script attachmentP and attachmentO are the same. the redundancy for people who wanna edit this who don't know what they're doing.
+attachmentO.Orientation = orientation 
 end
 
 weld(d1, Vector3.new(0,-0.8,4), Vector3.new(0, 0,0))
