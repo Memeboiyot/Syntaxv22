@@ -997,6 +997,94 @@ wait(1)
 		connectcl = game:GetService("RunService").Stepped:Connect(nocl)
 end
 
+	if string.sub(SyntaxV2.Executor_2.Text, 1, 7) == ("finger ") then
+
+		for i,v in pairs(GetPlayer(string.sub(SyntaxV2.Executor_2.Text, 8)))do
+
+			for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+				if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
+					game:GetService("RunService").Heartbeat:connect(function()
+						v.Velocity = Vector3.new(45,0,0)
+					end)
+				end
+			end
+			SyntaxV2.TextInfo.Text = "[ Finger ] command loaded."
+			wait(0.1)
+
+			local player = game.Players.LocalPlayer
+			local target = game.Players[v.Name].Character
+
+			local head = player.Character.WDW_FoamFinger
+
+			local root = target.HumanoidRootPart
+
+
+			function weld(hat, position, orientation)
+				local attachment = Instance.new("Attachment")
+				attachment.Parent = root
+				attachment.Name = hat:GetFullName()
+				attachment.Position = position
+				attachment.Orientation = orientation
+
+				local attach0 = hat.Handle:FindFirstChildOfClass("Attachment")
+				local attach1 = attachment
+
+				hat.Handle.AccessoryWeld:Destroy()
+				local alignP = Instance.new("AlignPosition")
+				alignP.Parent = hat.Handle
+				alignP.Attachment0 = attach0
+				alignP.Attachment1 = attach1
+				alignP.Responsiveness = 200
+				alignP.RigidityEnabled = true
+
+				local alignO = Instance.new("AlignOrientation")
+				alignO.Parent = hat.Handle
+				alignO.Attachment0 = attach0
+				alignO.Attachment1 = attach1
+				alignO.MaxTorque = 9e99
+				alignO.MaxAngularVelocity = 9e99
+				alignO.PrimaryAxisOnly = false
+				alignO.ReactionTorqueEnabled = false
+				alignO.Responsiveness = 200
+				alignO.RigidityEnabled = false
+			end
+
+			function reWeld(hat, position, orientation) --Object, Vector3, Optional Vector3
+				local attachmentP = hat.Handle:FindFirstChildOfClass("AlignPosition").Attachment1
+				local attachmentO = hat.Handle:FindFirstChildOfClass("AlignOrientation").Attachment1
+				attachmentP.Position = position
+				orientation = orientation or attachmentO.Orientation --this line is what makes orientation an optional argument
+				attachmentO.Orientation = orientation --under the circumstances of this unmodified script attachmentP and attachmentO are the same. the redundancy for people who wanna edit this who don't know what they're doing.
+			end
+
+			weld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
+
+			--reweld example
+			local UIS = game:GetService("UserInputService")
+			local readySlam = true
+			UIS.InputBegan:Connect(function(key, gpi)
+				if readySlam and key.KeyCode == Enum.KeyCode.Q and not gpi then --gpi or GameProcessedEvent tells you whether the button (Q) was pressed in chat or a TextBox GUI etc. for more information on the KeyCodes (say if you want to detect pressing enter) go to https://developer.roblox.com/en-us/api-reference/property/InputObject/KeyCode
+					--preparing slam
+					readySlam = false
+					reWeld(head, Vector3.new(0.2, -1.6, 1.5), Vector3.new(-0, -90, 110))
+					wait(0.5)
+					reWeld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
+					wait(0.5)
+					reWeld(head, Vector3.new(0.2, -1.6, 1.5), Vector3.new(-0, -90, 110))
+					wait(0.5)
+					reWeld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
+					wait(0.5)
+					reWeld(head, Vector3.new(0.2, -1.6, 1.5), Vector3.new(-0, -90, 110))
+					wait(0.5)
+					reWeld(head, Vector3.new(0.2, -2, 2), Vector3.new(-0, -90, 90))
+					readySlam = true
+				end
+			end)
+SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
+		end
+	end
+
+
 
 
 
