@@ -999,22 +999,148 @@ wait(1)
 SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
 end
 	if SyntaxV2.Executor_2.Text == "bodybomb" then
-
-
-		local player = game.Players.LocalPlayer.Character
-
-		if  player.Humanoid.RigType == Enum.HumanoidRigType.R15 then
-			player["RightHand"]:Destroy()
-		elseif
-			player.Humanoid.RigType == Enum.HumanoidRigType.R6 then
-			player["Right Arm"]:Destroy()
-		end
---here info
-SyntaxV2.TextInfo.Text = "[ ANTI-TOOL-KILL ] command loaded."
+SyntaxV2.TextInfo.Text = "[ HumanoidBomb ] command loaded."
 wait(1)
-SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
+
+for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+			if v:IsA("BasePart") and v.Name ~="HumanoidRootPart" then 
+				game:GetService("RunService").Heartbeat:connect(function()
+					v.Velocity = Vector3.new(9999,0,0)
+				end)
+			end
+		end
+		wait()
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+		local part1 = Instance.new("Part")
+		part1.Parent = game.Workspace
+		part1.Name = "Part1"
+		wait()
+		local humanoid = Instance.new("Humanoid")
+		humanoid.Parent = part1
+		game.Workspace.CurrentCamera.CameraSubject =game.Workspace.Part1
+		hrp = game.Players.LocalPlayer.Character.HumanoidRootPart    
+		bv = Instance.new("BodyVelocity", hrp)
+		bv.Velocity = Vector3.new(50,5,40)
+		wait()
+		bv.Velocity = Vector3.new(50,5,40)
+		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+		wait(2)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+
+		power = 100
+		wait()
+		local bambam = Instance.new("BodyThrust")
+		bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+		bambam.Force = Vector3.new(power,0,power)
+		bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+		LocalPlayer = game.Players.LocalPlayer
+		wait()
+		spawn(function()
+			game.Players.LocalPlayer.Character:BreakJoints()
+			game.Players.LocalPlayer.Character.Head.CanCollide = false
+			game.Players.LocalPlayer.Character.Torso.CanCollide = false
+			game.Players.LocalPlayer.Character["Left Leg"].CanCollide = false
+			game.Players.LocalPlayer.Character["Right Leg"].CanCollide = false
+		end)
+		local char = game.Players.LocalPlayer.Character
+		local b = char["Right Arm"]
+		local b1 = char["Left Arm"]
+		local b2 = char["Right Leg"]
+		local b3 = char["Left Leg"]
+		hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+		local bav = Instance.new("BodyAngularVelocity", hrp)
+		bav.AngularVelocity = Vector3.new(0, 0, -1000)
+		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+		bv = Instance.new("BodyVelocity", hrp)
+		bv.Velocity = Vector3.new(0,0,0)
+		wait()
+		bv.Velocity = Vector3.new(0,0,0)
+		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+
+		--bruh
+		local bav = Instance.new("BodyAngularVelocity", b)
+		bav.AngularVelocity = Vector3.new(0, 0, -10000)
+		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+		bv = Instance.new("BodyVelocity", b)
+		bv.Velocity = Vector3.new(0,0,0)
+		wait()
+		bv.Velocity = Vector3.new(0,0,0)
+		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+		--bruh
+
+		--bruh
+		local bav = Instance.new("BodyAngularVelocity", b1)
+		bav.AngularVelocity = Vector3.new(0, 0, -10000)
+		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+		bv = Instance.new("BodyVelocity", b1)
+		bv.Velocity = Vector3.new(0,0,0)
+		wait()
+		bv.Velocity = Vector3.new(0,0,0)
+		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+		--bruh
+
+		--bruh
+		local bav = Instance.new("BodyAngularVelocity", b2)
+		bav.AngularVelocity = Vector3.new(99, 99, -10000)
+		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+		bv = Instance.new("BodyVelocity", b2)
+		bv.Velocity = Vector3.new(99,99,99)
+		wait()
+		bv.Velocity = Vector3.new(99,99,99)
+		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+		--bruh
+		--bruh
+		local bav = Instance.new("BodyAngularVelocity", b3)
+		bav.AngularVelocity = Vector3.new(9999, 9999, -10000)
+		bav.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+		bv = Instance.new("BodyVelocity", b3)
+		bv.Velocity = Vector3.new(99,99,99)
+		wait()
+		bv.Velocity = Vector3.new(99,99,99)
+		bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+		--bruh
+
+		local Players = Game:GetService("Players")
+		local GetPlayers = Players:GetPlayers()
+		local Player = Players.LocalPlayer
+		local Character = Player.Character
+		local RunService = Game:GetService("RunService")
+		local Heartbeat = RunService.Heartbeat
+		local Sitting = {}
+
+		while true do
+			wait(0.000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+			for _,Players in next, GetPlayers do
+				if Players.Character then
+					repeat Heartbeat:wait() until Character:FindFirstChild("Right Arm")
+					repeat Heartbeat:wait() until Players.Character:FindFirstChild("Humanoid")
+					repeat Heartbeat:wait() until Players.Character:FindFirstChild("HumanoidRootPart")
+					if Players.Character:FindFirstChild("Humanoid").Sit ~= true then
+						table.insert(Sitting,x)
+						Character["Right Arm"]:BreakJoints()
+						Character["Left Arm"]:BreakJoints()
+						Character["Right Leg"]:BreakJoints()
+						Character["Left Leg"]:BreakJoints()
+						Character:FindFirstChild("Right Arm").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
+						Character:FindFirstChild("Left Arm").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
+						Character:FindFirstChild("Right Leg").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
+						Character:FindFirstChild("Left Leg").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
+						Character:FindFirstChild("HumanoidRootPart").CFrame = Players.Character:FindFirstChild("HumanoidRootPart").CFrame
+					end
+				end
+				SyntaxV2.TextInfo.Text = "Welcome to Syntax V2 New Updates."
 			SyntaxV2.Executor_2.Text = ""
 	end
+			end
+			end
+	
 	if SyntaxV2.Executor_2.Text == "rj" then
 		game:GetService("TeleportService"):Teleport(game.PlaceId,
 		game:GetService("Players").LocalPlayer)
