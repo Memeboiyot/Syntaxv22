@@ -3424,7 +3424,7 @@ local function VAGHUIK_fake_script() -- SyntaxV2.Login.LocalScript
 	local Key = script.Parent.Parent.Key
 	
 	script.Parent.MouseButton1Click:Connect(function()
-		if Key.Text == "Syntaxbesthub" then
+		if Key.Text == "Syntaxontop" then
 			script.Parent.Parent:TweenPosition(UDim2.new(0.383,0,-0.9,0), "Out", "Quad", 1, true)
 			wait(2)
 	local s = Instance.new("Sound")
